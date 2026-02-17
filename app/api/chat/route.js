@@ -6,7 +6,7 @@ export async function POST(req) {
     {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${process.env.DATABRICKS_TOKEN}`,
+        Authorization: `Bearer ${process.env.DATABRICKS_TOKEN}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -21,6 +21,6 @@ export async function POST(req) {
   const data = await response.json();
 
   return Response.json({
-    answer: data?.predictions?.[0]?.answer || "No answer returned"
+    fullResponse: data
   });
 }
