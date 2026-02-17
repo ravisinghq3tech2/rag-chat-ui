@@ -21,6 +21,6 @@ export async function POST(req) {
   const data = await response.json();
 
   return Response.json({
-    fullResponse: data
+    answer: data?.predictions?.answer || "No answer returned"
   });
 }
